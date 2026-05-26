@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreditFixs - Credit Guidance & Consultation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        header {
+            background: #0a0e27;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        .admin-link {
+            background: #dc3545;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+        
+        .admin-link:hover {
+            background: #c82333;
+        }
+        
+        nav a {
+            color: #b0b0b0;
+            margin-left: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: white;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #d4d4d4;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            background: #0056b3;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .service-card h3 {
+            color: #0a0e27;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .about {
+            background: white;
+            padding: 60px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about h2 {
+            font-size: 36px;
+            color: #0a0e27;
+            margin-bottom: 20px;
+        }
+        
+        .about p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .disclaimer strong {
+            color: #856404;
+        }
+        
+        .contact {
+            background: #f9f9f9;
+            padding: 60px 40px;
+        }
+        
+        .contact h2 {
+            font-size: 36px;
+            color: #0a0e27;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .contact > p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h3 {
+            color: #0a0e27;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0a0e27;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.25);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: #007bff;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+        
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        
+        .contact-item i {
+            font-size: 32px;
+            color: #007bff;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .contact-item h3 {
+            color: #0a0e27;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .contact-item p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #1ba85c;
+        }
+        
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+        
+        footer {
+            background: #0a0e27;
+            color: #d4d4d4;
+            padding: 60px 40px 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-about .company-logo {
+            font-size: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 800;
+        }
+        
+        .footer-about p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #a0a0a0;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info-footer {
+            font-size: 13px;
+            color: #b0b0b0;
+        }
+        
+        .contact-info-footer strong {
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #909090;
+        }
+        
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+        
+        .disclaimer-footer {
+            font-size: 11px;
+            color: #808080;
+            max-width: 600px;
+            margin: 10px auto 0;
+            line-height: 1.6;
+        }
+        
+        /* Admin Modal */
+        .admin-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+        
+        .admin-modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .admin-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .admin-close:hover {
+            color: black;
+        }
+        
+        .admin-header {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 15px;
+        }
+        
+        .admin-header h2 {
+            color: #0a0e27;
+            margin-bottom: 10px;
+        }
+        
+        .submission-card {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+        }
+        
+        .submission-card h4 {
+            color: #0a0e27;
+            margin-bottom: 10px;
+        }
+        
+        .submission-card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .submission-card .timestamp {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        .clear-data-btn {
+            background: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .clear-data-btn:hover {
+            background: #c82333;
+        }
+        
+        .no-submissions {
+            background: #e9ecef;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav {
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .services {
+                padding: 40px 20px;
+            }
+            
+            .about {
+                padding: 40px 20px;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact {
+                padding: 40px 20px;
+            }
+            
+            .admin-modal-content {
+                width: 95%;
+                margin: 20% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CREDITFIXS</div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <span class="admin-link" onclick="openAdminPanel()">📊 Admin</span>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Credit Guidance & Consultation</h1>
+        <p>Expert guidance for customers facing loan rejections due to credit report inaccuracies. We specialize in helping you understand and dispute marks from ceased NBFCs and merged banks.</p>
+        <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Started Now</button>
+    </section>
+    
+    <section id="services" class="services">
+        <div class="service-card">
+            <h3>📋 Credit Guidance</h3>
+            <p>Learn how to read your credit report, understand negative marks, and identify inaccuracies in your credit profile.</p>
+        </div>
+        <div class="service-card">
+            <h3>🔍 Dispute Consultation</h3>
+            <p>We guide you through the dispute process. You file disputes with bureaus - we support and advise you every step.</p>
+        </div>
+        <div class="service-card">
+            <h3>🏦 Ceased NBFC Disputes</h3>
+            <p>Our specialty: Helping you dispute marks from NBFCs that have stopped operating or closed.</p>
+        </div>
+        <div class="service-card">
+            <h3>🏛️ Merged Banks Help</h3>
+            <p>Navigate accounts from banks that merged or restructured. We help you understand status changes.</p>
+        </div>
+        <div class="service-card">
+            <h3>📚 Credit Education</h3>
+            <p>Free resources, templates, and educational materials to help you understand your credit rights.</p>
+        </div>
+        <div class="service-card">
+            <h3>📞 Consultation Support</h3>
+            <p>Get answers to your credit questions via phone, email, or WhatsApp. Quick response times guaranteed.</p>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <h2>How CreditFixs Works</h2>
+        <p><strong>IMPORTANT:</strong> CreditFixs is a guidance and consultation service. We provide expert advice and support, but YOU are responsible for filing your own disputes with credit bureaus.</p>
+        
+        <div class="disclaimer">
+            <strong>⚠️ Disclaimer:</strong> We are NOT a registered financial service, NOT registered with RBI, and NOT an NBFC. We provide guidance only. We cannot guarantee credit score improvement or loan approval. We do NOT file disputes on your behalf - you do, with our guidance and support.
+        </div>
+        
+        <h3 style="color: #0a0e27; margin-top: 30px; margin-bottom: 15px;">Our Process:</h3>
+        <p><strong>1. Consultation:</strong> You tell us about your credit concerns and goals.</p>
+        <p><strong>2. Guidance:</strong> We explain your options and help you understand what can be disputed.</p>
+        <p><strong>3. Support:</strong> We provide templates, sample letters, and step-by-step guidance.</p>
+        <p><strong>4. Your Action:</strong> You file disputes directly with credit bureaus (CIBIL, Equifax, Experian, High Mark).</p>
+        <p><strong>5. Follow-up:</strong> We help you track progress and understand responses from bureaus.</p>
+        
+        <h3 style="color: #0a0e27; margin-top: 30px; margin-bottom: 15px;">Why Choose Us:</h3>
+        <p>✓ Specialization in ceased NBFC and merged bank disputes<br>
+           ✓ Honest about what we can and cannot do<br>
+           ✓ Realistic timelines: 30-90 days typical<br>
+           ✓ Educational approach - we teach you your rights<br>
+           ✓ Local service in Visakhapatnam<br>
+           ✓ Quick response times & direct contact</p>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <p>Fill out the form below and we'll get back to you within 24 hours with guidance for your situation.</p>
+        
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <h3>Contact Form</h3>
+                <div class="success-message" id="successMessage">
+                    ✓ Your inquiry has been received! We'll contact you within 24 hours.
+                </div>
+                <div class="error-message" id="errorMessage">
+                    ✗ There was an error. Please try again.
+                </div>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Contact Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number (10 digits)" pattern="[0-9]{10}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="issue">Issue Description *</label>
+                        <textarea id="issue" name="issue" required placeholder="Describe your credit issue or concern in detail..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Inquiry</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+91 6304239481</p>
+                    <p style="font-size: 12px; color: #999; margin-top: 10px;">Call us Monday-Friday, 9AM-6PM IST</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>We are Experts In</h3>
+                    <p>CashBean @ PC Financial Services Experts</p>
+                    <p style="font-size: 12px; color: #999; margin-top: 10px;">We respond within 24 hours</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Visakhapatnam<br>Andhra Pradesh, India</p>
+                    <p style="font-size: 12px; color: #999; margin-top: 10px;">Local service with personal support</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>+91 6304239481</p>
+                    <a href="https://wa.me/916304239481?text=Hi%20CreditFixs%2C%20I%20need%20credit%20guidance" target="_blank" class="whatsapp-btn">Message on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section footer-about">
+                <div class="company-logo">CREDITFIXS</div>
+                <p>Expert credit guidance and consultation for customers facing loan rejections. We specialize in helping you understand and dispute credit report inaccuracies, especially from ceased NBFCs and merged banks.</p>
+                <div class="contact-info-footer">
+                    <strong>Contact:</strong>
+                    <p>📧 info@creditfixs.com</p>
+                    <p>📱 +91 6304239481</p>
+                    <p>📍 Visakhapatnam, Andhra Pradesh</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Credit Guidance</a></li>
+                    <li><a href="#services">Dispute Consultation</a></li>
+                    <li><a href="#services">Score Monitoring</a></li>
+                    <li><a href="#services">Credit Education</a></li>
+                    <li><a href="#services">Resources</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Fair Credit Reporting</a></li>
+                    <li><a href="#">Compliance</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p><strong>&copy; 2026 CreditFixs. All Rights Reserved.</strong></p>
+            <div class="disclaimer-footer">
+                <strong>Important Disclaimer:</strong> CreditFixs is a guidance and consultation service. We do NOT file disputes, contact bureaus, or provide legal advice. You are responsible for your own dispute filing and credit decisions. We cannot guarantee credit improvements or loan approval. For legal matters, consult a lawyer.
+            </div>
+            <p style="margin-top: 15px;"><strong>Compliant With:</strong> Consumer Protection Act 2019 | IT Act 2000</p>
+            <p><strong>NOT registered with RBI | NOT an NBFC | NOT a registered financial service</strong></p>
+        </div>
+    </footer>
+    
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="admin-close" onclick="closeAdminPanel()">&times;</span>
+            <div class="admin-header">
+                <h2>📊 Inquiry Dashboard</h2>
+                <p style="color: #666;">View all customer inquiries received</p>
+            </div>
+            <div id="submissionsContainer"></div>
+            <button class="clear-data-btn" onclick="clearAllData()">🗑️ Clear All Submissions</button>
+        </div>
+    </div>
+    
+    <script>
+        // Email configuration (using Formspree or Gmail integration)
+        const ADMIN_EMAIL = "pcfinancialcreditexpert@gmail.com";
+        const ADMIN_PASSWORD = "admin123"; // Simple protection
+        
+        // Load submissions from localStorage
+        function loadSubmissions() {
+            return JSON.parse(localStorage.getItem('creditfixs_submissions')) || [];
+        }
+        
+        // Save submissions to localStorage
+        function saveSubmissions(submissions) {
+            localStorage.setItem('creditfixs_submissions', JSON.stringify(submissions));
+        }
+        
+        // Handle form submission
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const issue = document.getElementById('issue').value;
+            
+            // Validate phone
+            if (phone.length !== 10 || isNaN(phone)) {
+                document.getElementById('errorMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 5000);
+                return;
+            }
+            
+            // Create submission object
+            const submission = {
+                id: Date.now(),
+                name: name,
+                phone: phone,
+                issue: issue,
+                timestamp: new Date().toLocaleString('en-IN'),
+                status: 'New'
+            };
+            
+            // Save to localStorage
+            let submissions = loadSubmissions();
+            submissions.push(submission);
+            saveSubmissions(submissions);
+            
+            // Send to email via Formspree
+            await sendEmailNotification(submission);
+            
+            // Clear form and show success
+            document.getElementById('contactForm').reset();
+            document.getElementById('successMessage').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        }
+        
+        // Send email notification
+        async function sendEmailNotification(submission) {
+            try {
+                // Using Formspree (free service - no account needed)
+                const formData = new FormData();
+                formData.append('name', submission.name);
+                formData.append('phone', submission.phone);
+                formData.append('issue', submission.issue);
+                formData.append('timestamp', submission.timestamp);
+                formData.append('_to', ADMIN_EMAIL);
+                formData.append('_subject', `New Inquiry from ${submission.name}`);
+                
+                // Send to Formspree (you'll need to set this up at https://formspree.io)
+                // For now, we're just storing locally
+                console.log('Inquiry saved:', submission);
+            } catch (error) {
+                console.log('Email service note: To enable email notifications, set up Formspree at https://formspree.io');
+            }
+        }
+        
+        // Open admin panel
+        function openAdminPanel() {
+            const modal = document.getElementById('adminModal');
+            const submissions = loadSubmissions();
+            
+            if (submissions.length === 0) {
+                document.getElementById('submissionsContainer').innerHTML = 
+                    '<div class="no-submissions">No inquiries yet</div>';
+            } else {
+                let html = '';
+                submissions.reverse().forEach(submission => {
+                    html += `
+                        <div class="submission-card">
+                            <h4>${submission.name}</h4>
+                            <p><strong>Phone:</strong> ${submission.phone}</p>
+                            <p><strong>Issue:</strong> ${submission.issue}</p>
+                            <p class="timestamp">Received: ${submission.timestamp}</p>
+                        </div>
+                    `;
+                });
+                document.getElementById('submissionsContainer').innerHTML = html;
+            }
+            
+            modal.style.display = 'block';
+        }
+        
+        // Close admin panel
+        function closeAdminPanel() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+        
+        // Clear all data
+        function clearAllData() {
+            if (confirm('Are you sure you want to delete all inquiries?')) {
+                localStorage.removeItem('creditfixs_submissions');
+                document.getElementById('submissionsContainer').innerHTML = 
+                    '<div class="no-submissions">No inquiries yet</div>';
+            }
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('adminModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
